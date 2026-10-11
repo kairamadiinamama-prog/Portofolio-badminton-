@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khairinnisa | Badminton Player IXB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0b192c',
+                            900: '#070f1e',
+                            950: '#030712'
+                        },
+                        cyan: {
+                            DEFAULT: '#00f2fe',
+                            400: '#38ef7d',
+                            500: '#00d2ff'
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-cyan': '0 0 25px -5px rgba(0, 242, 254, 0.4)',
+                        'glow-gold': '0 0 25px -5px rgba(251, 191, 36, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #ffe066 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-100 font-sans antialiased selection:bg-cyan selection:text-navy-950 overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-card rounded-2xl px-5 py-3">
+            <a href="#beranda" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-navy-950 text-xl font-extrabold shadow-glow-cyan group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-shuttlecock"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-wide text-white group-hover:text-cyan transition-colors">Khairinnisa</span>
+                    <span class="text-xs text-cyan-400 font-medium">IXB Badminton Player</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#beranda" class="hover:text-cyan transition-colors">Beranda</a>
+                <a href="#profil" class="hover:text-cyan transition-colors">Profil</a>
+                <a href="#prestasi" class="hover:text-cyan transition-colors">Prestasi</a>
+                <a href="#galeri" class="hover:text-cyan transition-colors">Galeri</a>
+                <a href="#jadwal" class="hover:text-cyan transition-colors">Jadwal</a>
+                <a href="#kontak" class="hover:text-cyan transition-colors">Kontak</a>
+            </nav>
+
+            <a href="#kontak" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold text-xs bg-gradient-to-r from-cyan-500 to-blue-600 text-navy-950 hover:brightness-110 shadow-glow-cyan transition-all transform hover:scale-105">
+                Hubungi Saya
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-2xl text-slate-200 focus:outline-none p-1">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-2 glass-card rounded-2xl p-6 flex-col gap-4 text-center font-medium shadow-2xl border border-slate-800">
+            <a href="#beranda" class="mobile-link py-2 hover:text-cyan transition-colors">Beranda</a>
+            <a href="#profil" class="mobile-link py-2 hover:text-cyan transition-colors">Profil</a>
+            <a href="#prestasi" class="mobile-link py-2 hover:text-cyan transition-colors">Prestasi</a>
+            <a href="#galeri" class="mobile-link py-2 hover:text-cyan transition-colors">Galeri</a>
+            <a href="#jadwal" class="mobile-link py-2 hover:text-cyan transition-colors">Jadwal</a>
+            <a href="#kontak" class="mobile-link py-2 hover:text-cyan transition-colors">Kontak</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative min-h-screen pt-32 pb-20 px-4 flex items-center justify-center overflow-hidden">
+        <!-- Background Lighting Effects -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-blue-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide">
+                    <i class="fa-solid fa-bolt animate-pulse"></i> Atlet Bulutangkis Muda
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    Halo, Saya <br/>
+                    <span class="gradient-text">Khairinnisa</span>
+                </h1>
+                
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto md:mx-0 font-light">
+                    Siswa <span class="text-cyan font-semibold">Kelas IXB</span> & Atlet Badminton berbakat. Berdedikasi tinggi, pantang menyerah, dan siap mencetak prestasi terbaik di setiap smash dan langkah di lapangan!
+                </p>
+
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                    <a href="#prestasi" class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 to-blue-600 text-navy-950 shadow-glow-cyan hover:brightness-110 transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                        <i class="fa-solid fa-trophy"></i> Lihat Prestasi
+                    </a>
+                    <a href="#kontak" class="px-7 py-3.5 rounded-xl font-semibold text-sm glass-card hover:bg-slate-800 text-slate-200 border border-slate-700 transition-all transform hover:-translate-y-1 flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+                    </a>
+                </div>
+
+                <!-- Quick Stats Badge -->
+                <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0 text-center">
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-cyan">15+</p>
+                        <p class="text-xs text-slate-400 mt-1">Turnamen</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-gold-400">8</p>
+                        <p class="text-xs text-slate-400 mt-1">Medali/Piala</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-extrabold text-cyan">12 Jam</p>
+                        <p class="text-xs text-slate-400 mt-1">Latihan/Minggu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Badge/Visual Illustration Card -->
+            <div class="relative flex justify-center">
+                <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden glass-card p-4 border border-slate-700/50 shadow-2xl group">
+                    <div class="w-full h-full rounded-2xl bg-gradient-to-tr from-navy-900 via-slate-900 to-navy-800 flex flex-col items-center justify-center p-8 relative overflow-hidden text-center">
+                        <!-- Court Line Decoration -->
+                        <div class="absolute inset-0 border-2 border-cyan-500/10 m-4 rounded-xl pointer-events-none"></div>
+                        <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-cyan-500/10 pointer-events-none"></div>
+                        
+                        <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-cyan-500/10 border-2 border-cyan-500/40 flex items-center justify-center text-cyan mb-6 shadow-glow-cyan group-hover:scale-110 transition-transform duration-500">
+                            <i class="fa-solid fa-person-biking text-5xl sm:text-6xl text-cyan hidden"></i>
+                            <!-- Shuttlecock Icon Custom Visual -->
+                            <i class="fa-solid fa-shuttlecock text-6xl sm:text-7xl transform -rotate-45"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold text-white mb-1">KHAIRINNISA</h3>
+                        <p class="text-xs font-semibold tracking-widest text-cyan-400 uppercase mb-4">Pemain Tunggal & Ganda Putri</p>
+                        
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 text-xs">
+                            <i class="fa-solid fa-school text-gold-400 mr-1.5"></i> Kelas IXB - Junior Player
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFIL / ABOUT SECTION -->
+    <section id="profil" class="py-24 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-cyan font-semibold text-xs tracking-widest uppercase">Mengenal Lebih Dekat</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Profil Khairinnisa</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Main Bio Card -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan text-xl">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Tentang Saya</h3>
+                                <p class="text-xs text-slate-400">Pemain Bulutangkis Kelas IXB</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 leading-relaxed mb-6 font-light">
+                            Halo! Saya Khairinnisa, siswi kelas IXB yang memiliki passion besar di dunia bulutangkis sejak sekolah dasar. Bagi saya, lapangan badminton bukan hanya tempat bertanding, tetapi ruang untuk menguji mental, kedisiplinan, dan semangat pantang menyerah.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed mb-8 font-light">
+                            Saya aktif berlatih di klub lokal dan mewakili sekolah dalam berbagai ajang turnamen daerah. Cita-cita utama saya adalah menjadi atlet nasional yang mengharumkan nama bangsa di kancah internasional.
+                        </p>
+                    </div>
+
+                    <!-- Personal Attributes Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-slate-800">
+                        <div class="p-3 rounded-xl bg-navy-900/60 border border-slate-800">
+                            <span class="text-xs text-slate-400 block mb-1">Posisi Utama</span>
+                            <span class="text-sm font-semibold text-white">Tunggal Putri</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-navy-900/60 border border-slate-800">
+                            <span class="text-xs text-slate-400 block mb-1">Spesialisasi</span>
+                            <span class="text-sm font-semibold text-white">Ganda (Double)</span>
+                        </div>
+                        <div class="p-3 rounded-xl bg-navy-900/60 border border-slate-800 col-span-2 sm:col-span-1">
+                            <span class="text-xs text-slate-400 block mb-1">Gaya Bermain</span>
+                            <span class="text-sm font-semibold text-cyan">Attacking & Fast</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill & Target Card -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-chart-line text-cyan"></i> Keahlian & Atribut
+                    </h3>
+
+                    <div class="space-y-5">
+                        <!-- Skill Bar 1 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-slate-300">Smash & Speed</span>
+                                <span class="text-cyan">88%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Bar 2 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-slate-300">Stamina & Ketahanan</span>
+                                <span class="text-cyan">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Bar 3 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-slate-300">Akurasi Dropshot & Netting</span>
+                                <span class="text-cyan">84%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full" style="width: 84%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Bar 4 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-2">
+                                <span class="text-slate-300">Fokus & Mental Bertanding</span>
+                                <span class="text-cyan">90%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border border-cyan-500/20 flex items-center gap-4">
+                        <i class="fa-solid fa-bullseye text-3xl text-gold-400"></i>
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase font-semibold">Target Utama 2026</p>
+                            <p class="text-sm font-semibold text-white">Juara 1 O2SN Tingkat Provinsi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESTASI / ACHIEVEMENTS SECTION -->
+    <section id="prestasi" class="py-24 px-4 bg-navy-900/50 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-400 font-semibold text-xs tracking-widest uppercase">Jejak Langkah & Penghargaan</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Prestasi Pilihan</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-gold-400 to-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Achievement Card 1 -->
+                <div class="glass-card glass-card-hover rounded-3xl p-7 relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-gold-400/10 rounded-full blur-xl group-hover:bg-gold-400/20 transition-all"></div>
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-gold-400/20 text-gold-400 border border-gold-400/30">
+                            <i class="fa-solid fa-medal mr-1"></i> Juara 1
+                        </span>
+                        <span class="text-xs font-semibold text-slate-400">2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan transition-colors">O2SN Badminton tingkat Kota</h3>
+                    <p class="text-slate-400 text-xs mb-4">Kategori Tunggal Putri Junior</p>
+                    <p class="text-slate-300 text-sm font-light leading-relaxed">
+                        Memenangkan seluruh pertandingan hingga babak final tanpa kekalahan set, membawa medali emas untuk sekolah.
+                    </p>
+                </div>
+
+                <!-- Achievement Card 2 -->
+                <div class="glass-card glass-card-hover rounded
